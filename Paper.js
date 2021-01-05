@@ -8,16 +8,34 @@ class Paper{
             'density' : 1.2
 
         }
-        this.body = Bodies.circle(x,y,radius,options)
-        this.radius = radius;
-        World.add(world, this.body)
+       
+       console.log("after declaring the testImage1 variable")
+        this.body = Bodies.rectangle(x,y,width, height ,options)
+       this.radius = radius
+        console.log(("Before loading the image"))
+       // this.image = loadImage('paperimg.png');
+       this.testImage1 = loadImage("paperimg.png")
+       console.log("after loading the image")
+        
+            
+        
+      
+        
+       
+        
+        World.add(world, this.body);
      
     }
 
     display(){
         var sphere = this.body.position
-        ellipseMode(RADIUS);
-        ellipse(sphere.x, sphere.y, 15, 15)   
+        push()
+        translate(sphere.x, sphere.y)
+        rotate(this.body.angle)
+        imageMode(CENTER)
+        console.log(sphere.y)
+        image(this.testImage1, 0, 0, this.radius, this.radius) 
+        pop()
     }
 
-}
+} 
